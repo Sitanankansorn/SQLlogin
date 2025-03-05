@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600">
+    <div class="w-full max-w-md p-8 bg-white bg-opacity-10 backdrop-blur-md rounded-2xl shadow-xl">
+        <h2 class="text-3xl font-bold text-center text-white">Welcome Back</h2>
+        <p class="text-sm text-center text-gray-200">Login to continue</p>
+
+        <form class="mt-6" action="/login" method="POST">
+            <div class="relative">
+                <label for="email" class="text-sm text-gray-200">Email</label>
+                <input type="email" id="email" name="email" 
+                    class="w-full px-4 py-3 mt-2 bg-white bg-opacity-20 text-white placeholder-gray-300 border border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-opacity-30 transition"
+                    placeholder="Enter your email" required>
+            </div>
+            <div class="relative mt-4">
+                <label for="password" class="text-sm text-gray-200">Password</label>
+                <div class="relative">
+                    <input type="password" id="password" name="password" 
+                        class="w-full px-4 py-3 mt-2 bg-white bg-opacity-20 text-white placeholder-gray-300 border border-transparent rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-opacity-30 transition"
+                        placeholder="Enter your password" required>
+                    <button type="button" class="absolute inset-y-0 right-3 flex items-center text-gray-300 hover:text-white" onclick="togglePassword()">
+                        👁
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center justify-between mt-4">
+                <label class="flex items-center text-gray-200 cursor-pointer">
+                    <input type="checkbox" class="rounded border-gray-400 focus:ring-2 focus:ring-blue-300">
+                    <span class="ml-2 text-sm">Remember me</span>
+                </label>
+                <a href="#" class="text-sm text-blue-300 hover:underline">Forgot password?</a>
+            </div>
+            <button class="w-full px-4 py-3 mt-4 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all duration-300">Login</button>
+        </form>
+
+        <div class="mt-6 space-y-2">
+            <button class="w-full px-4 py-3 flex items-center justify-center space-x-2 text-white bg-red-500 rounded-lg hover:bg-red-600 transition-all">
+                <span>🔴</span> <span>Log in with Google</span>
+            </button>
+            <button class="w-full px-4 py-3 flex items-center justify-center space-x-2 text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-all">
+                <span>🐱</span> <span>Log in with GitHub</span>
+            </button>
+            <button class="w-full px-4 py-3 flex items-center justify-center space-x-2 text-white bg-blue-700 rounded-lg hover:bg-blue-800 transition-all">
+                <span>📘</span> <span>Log in with Facebook</span>
+            </button>
+        </div>
+
+        <p class="mt-4 text-sm text-center text-gray-200">Don't have an account? 
+            <a href="/register" class="text-blue-300 hover:underline">Sign up</a>
+        </p>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
